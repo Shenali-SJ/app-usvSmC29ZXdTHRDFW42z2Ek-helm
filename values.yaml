@@ -16,7 +16,7 @@ microservices:
     maxReplicas: 5
     maxCPU: 200m
     maxMemory: 700Mi
-    dockerImage: ashutoshsahoo/spring-boot-kubernetes-mysql:5.0.0
+    dockerImage: ashutoshsahoo/spring-boot-hello
     containerPort: 8080
     envs:
       MYSQL_DATABASE:
