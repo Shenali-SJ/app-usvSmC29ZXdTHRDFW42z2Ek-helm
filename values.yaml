@@ -1,5 +1,5 @@
-projectId: app-usvSmC29ZXdTHRDFW42z2Ek
-appName: petclinic
+projectId: app-LCcJmSkWfwAVKnaPF8UYSM
+appName: lms
 description: Sample application
 imageURL: http://image.com/image
 version: 1.0.0
@@ -9,40 +9,19 @@ clusterIPs:
 - 192.168.59.103
 monitoring: true
 microservices:
-  petService:
-    serviceName: petservice
-    avgReplicas: 2
-    minReplicas: 1
-    maxReplicas: 5
+  studentService:
+    serviceName: studentservice
+    avgReplicas: 3
+    minReplicas: 2
+    maxReplicas: 8
     maxCPU: 200m
     maxMemory: 700Mi
-    dockerImage: ashutoshsahoo/spring-boot-hello
+    dockerImage: adityapratapbhuyan/mysqlapp
     containerPort: 8080
     envs:
-      MYSQL_DATABASE:
-        name: MYSQL_DATABASE
-        value: petdb
-      MYSQL_PASSWORD:
-        name: MYSQL_PASSWORD
-        value: test123
       MYSQL_ROOT_PASSWORD:
         name: MYSQL_ROOT_PASSWORD
-        value: password
-      MYSQL_USER:
-        name: MYSQL_USER
-        value: testuser
-      SPRING_DATASOURCE_PASSWORD:
-        name: SPRING_DATASOURCE_PASSWORD
-        value: dGVzdDEyMw==
-      SPRING_DATASOURCE_URL:
-        name: SPRING_DATASOURCE_URL
-        value: jdbc:mysql://mysql/petdb
-      SPRING_DATASOURCE_USERNAME:
-        name: SPRING_DATASOURCE_USERNAME
-        value: testuser
-      SPRING_PROFILES_ACTIVE:
-        name: SPRING_PROFILES_ACTIVE
-        value: k8s
+        value: root
     serviceEvaluation:
       kubeConfigType:
       - statefulSetBased
@@ -50,4 +29,4 @@ evaluationResult:
   language: Java
   database: MySQL
   microservices:
-  - petService
+  - studentService
